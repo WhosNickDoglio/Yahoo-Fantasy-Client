@@ -1,11 +1,9 @@
-# Yahoo Fantasy API Client Kotlin
+# Unofficial Yahoo Fantasy API Client Kotlin
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Client CI](https://github.com/WhosNickDoglio/Yahoo-Fantasy-Client-Kotlin/workflows/Client%20CI/badge.svg)
 
 A Kotlin (JVM) Wrapper for the Yahoo Fantasy API.
-
-TODO figure out I want to provide the end API, Callback, Coroutine, Rx, etc
 
 ## Useful links
 
