@@ -2,6 +2,8 @@
 .DS_Store
 /.gradle/
 /.idea/*
+/yahoo-fantasy-client/build/
+
 !/.idea/codeStyles/
 !/.idea/copyright/
 !/.idea/scopes/
