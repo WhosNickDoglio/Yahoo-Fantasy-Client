@@ -22,6 +22,6 @@
  * SOFTWARE.
  */
 
-package com.nicholasdoglio.yahoofantasy
+package com.ndoglio.yahoofantasy
 
-class Client
+public class Client
