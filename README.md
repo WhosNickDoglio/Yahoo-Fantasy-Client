@@ -1,7 +1,7 @@
 # Unofficial Yahoo Fantasy API Client
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Client CI](https://github.com/WhosNickDoglio/Yahoo-Fantasy-Client/workflows/Client%20CI/badge.svg)
+![CI](https://github.com/WhosNickDoglio/Yahoo-Fantasy-Client/workflows/CI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/90c4e5a96aec6b8f30eb/maintainability)](https://codeclimate.com/github/WhosNickDoglio/Yahoo-Fantasy-Client/maintainability)
 
 A Kotlin (JVM) Wrapper for the Yahoo Fantasy API.
