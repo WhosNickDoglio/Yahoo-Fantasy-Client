@@ -4,7 +4,7 @@ Adhering to the following guidelines will help make the development process for 
 
 # Ground Rules
 
-Please make sure to review and follow the [Code of conduct](/.github/CODE_OF_CONDUCT.md) when making contributions to this project. 
+Please make sure to review and follow the [Code of Conduct](/.github/CODE_OF_CONDUCT.md) when making contributions to this project. 
 
 # Your First Contribution
 
