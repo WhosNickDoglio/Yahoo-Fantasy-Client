@@ -7,7 +7,10 @@
 
 A Kotlin (JVM) Wrapper for the Yahoo Fantasy API.
 
-# License
+## Want to Contribute?
+Check out the [contribution guidelines!](/.github/CONTRIBUTING.md)
+
+## License
 
       MIT License
       
