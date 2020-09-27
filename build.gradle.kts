@@ -27,16 +27,15 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.squareup.sqldelight:gradle-plugin:1.4.3")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
     }
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt") version "1.12.0"
+    id("io.gitlab.arturbosch.detekt") version "1.14.0"
     id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
-    id("com.github.ben-manes.versions") version "0.31.0"
-    id("org.jetbrains.dokka") version "1.4.0"
+    id("com.github.ben-manes.versions") version "0.33.0"
+    id("org.jetbrains.dokka") version "1.4.10"
 }
 
 allprojects {

@@ -46,11 +46,11 @@ kotlin {
 }
 
 jacoco {
-    toolVersion = "0.8.5"
+    toolVersion = "0.8.6"
 }
 
 ktlint {
-    version.set("0.38.1")
+    version.set("0.39.0")
     outputColorName.set("RED")
     disabledRules.set(setOf("import-ordering"))
 }
@@ -63,7 +63,6 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
     implementation("com.github.scribejava:scribejava-apis:7.1.1")
-    implementation("com.github.scribejava:scribejava-httpclient-okhttp:7.1.1")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-jaxb:2.9.0")
