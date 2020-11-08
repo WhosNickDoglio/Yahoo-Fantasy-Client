@@ -26,18 +26,17 @@ plugins {
     kotlin("jvm")
     id("io.gitlab.arturbosch.detekt")
     id("org.jlleitschuh.gradle.ktlint")
-    id("com.github.ben-manes.versions")
     id("org.jetbrains.dokka")
     jacoco
 }
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -59,22 +58,22 @@ group = "com.ndoglio.yahoo-fantasy-client"
 version = "0.1.0"
 
 dependencies {
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation(Square.okHttp3.okHttp)
+    implementation(Square.okHttp3.loggingInterceptor)
 
-    implementation("com.github.scribejava:scribejava-apis:7.1.1")
+    implementation("com.github.scribejava:scribejava-apis:_")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-jaxb:2.9.0")
+    implementation(Square.retrofit2.retrofit)
+    implementation("com.squareup.retrofit2:converter-jaxb:_")
 
-    implementation("javax.xml.bind:jaxb-api:2.3.1")
-    implementation("org.glassfish.jaxb:jaxb-runtime:2.3.1")
+    implementation("javax.xml.bind:jaxb-api:_")
+    implementation("org.glassfish.jaxb:jaxb-runtime:_")
 
-    testImplementation("junit:junit:4.13")
-    testImplementation("com.google.truth:truth:1.0.1")
+    testImplementation(Testing.junit4)
+    testImplementation("com.google.truth:truth:_")
 
     // TODO validate models?
-    testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.4.10")
-    testImplementation("io.github.classgraph:classgraph:4.8.90")
-    testImplementation("uk.co.jemos.podam:podam:7.2.5.RELEASE")
+    testImplementation("org.jetbrains.kotlin:kotlin-reflect:_")
+    testImplementation("io.github.classgraph:classgraph:_")
+    testImplementation("uk.co.jemos.podam:podam:_")
 }
