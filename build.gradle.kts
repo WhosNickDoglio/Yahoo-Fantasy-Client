@@ -27,15 +27,14 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
+        classpath(kotlin("gradle-plugin", version = "1.4.10"))
     }
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt") version "1.14.0"
-    id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
-    id("com.github.ben-manes.versions") version "0.33.0"
-    id("org.jetbrains.dokka") version "1.4.10"
+    id("io.gitlab.arturbosch.detekt")
+    id("org.jlleitschuh.gradle.ktlint")
+    id("org.jetbrains.dokka")
 }
 
 allprojects {
@@ -43,9 +42,4 @@ allprojects {
         jcenter()
         mavenCentral()
     }
-}
-
-tasks.wrapper {
-    distributionType = Wrapper.DistributionType.ALL
-    gradleVersion = "6.6.1"
 }
