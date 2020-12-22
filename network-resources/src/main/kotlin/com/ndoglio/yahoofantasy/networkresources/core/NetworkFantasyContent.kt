@@ -22,6 +22,23 @@
  * SOFTWARE.
  */
 
-package com.ndoglio.yahoofantasy
+package com.ndoglio.yahoofantasy.networkresources.core
 
-public class Client
+import com.ndoglio.yahoofantasy.core.InternalApi
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+/**
+ *
+ * @param
+ */
+@InternalApi
+@JsonClass(generateAdapter = true)
+public data class NetworkFantasyContent(
+    @Json(name = "xml:lang") val xmlLang: String,
+    @Json(name = "yahoo:uri") val yahooUri: String,
+    @Json(name = "league") val league: List<LeagueListItem>,
+    @Json(name = "time") val time: String,
+    @Json(name = "copyright") val copyright: String,
+    @Json(name = "refresh_rate") val refreshRate: String,
+)

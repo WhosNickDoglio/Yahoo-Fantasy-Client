@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Nicholas Doglio
+ * Copyright (c) 2020. Nicholas Doglio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,33 +22,15 @@
  * SOFTWARE.
  */
 
-plugins {
-    kotlin("jvm")
-}
+package com.ndoglio.yahoofantasy.resources
 
-group = "com.ndoglio.yahoo-fantasy-client"
-version = "0.1.0-SNAPSHOT"
+import com.squareup.moshi.Json
 
-dependencies {
-    implementation(project(":resources"))
-    implementation(project(":resource-adapters"))
-    implementation(project(":core"))
-
-    implementation(Square.okHttp3.okHttp)
-    implementation(Square.okHttp3.loggingInterceptor)
-
-    implementation("com.github.scribejava:scribejava-apis:_")
-
-    implementation(Square.retrofit2.retrofit)
-    implementation(Square.retrofit2.converter.moshi)
-    implementation(Square.moshi)
-    implementation("com.squareup.moshi:moshi-adapters:_")
-
-    testImplementation(Testing.junit4)
-    testImplementation("com.google.truth:truth:_")
-
-    // TODO validate models?
-    testImplementation("org.jetbrains.kotlin:kotlin-reflect:_")
-    testImplementation("io.github.classgraph:classgraph:_")
-    testImplementation("uk.co.jemos.podam:podam:_")
-}
+public data class LeagueFantasyContent(
+    @Json(name = "xml:lang") val xmlLang: String?, // en-US
+    @Json(name = "yahoo:uri") val yahooUri: String?, // /fantasy/v2/league/nba.l.15785/metadata
+    @Json(name = "league") val league: League,
+    @Json(name = "time") val time: String?, // 21.259069442749ms
+    @Json(name = "copyright") val copyright: String?, // Data provided by Yahoo! and STATS, LLC
+    @Json(name = "refresh_rate") val refreshRate: String? // 60
+)

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Nicholas Doglio
+ * Copyright (c) 2020. Nicholas Doglio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,15 @@
 
 plugins {
     kotlin("jvm")
+    kotlin("kapt")
 }
 
 group = "com.ndoglio.yahoo-fantasy-client"
 version = "0.1.0-SNAPSHOT"
 
 dependencies {
-    implementation(project(":resources"))
-    implementation(project(":resource-adapters"))
-    implementation(project(":core"))
-
-    implementation(Square.okHttp3.okHttp)
-    implementation(Square.okHttp3.loggingInterceptor)
-
-    implementation("com.github.scribejava:scribejava-apis:_")
-
-    implementation(Square.retrofit2.retrofit)
-    implementation(Square.retrofit2.converter.moshi)
     implementation(Square.moshi)
-    implementation("com.squareup.moshi:moshi-adapters:_")
+    kapt(Square.moshi.kotlinCodegen)
 
     testImplementation(Testing.junit4)
     testImplementation("com.google.truth:truth:_")

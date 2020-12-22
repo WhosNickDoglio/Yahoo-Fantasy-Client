@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Nicholas Doglio
+ * Copyright (c) 2020. Nicholas Doglio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,33 +22,30 @@
  * SOFTWARE.
  */
 
-plugins {
-    kotlin("jvm")
-}
+package com.ndoglio.yahoofantasy.adapters.internal
 
-group = "com.ndoglio.yahoo-fantasy-client"
-version = "0.1.0-SNAPSHOT"
+import com.ndoglio.yahoofantasy.networkresources.core.LeagueListItem
+import com.ndoglio.yahoofantasy.networkresources.core.NetworkFantasyContent
+import com.ndoglio.yahoofantasy.networkresources.core.NetworkLeague
+import com.squareup.moshi.FromJson
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonReader
+import com.squareup.moshi.JsonWriter
+import com.squareup.moshi.ToJson
 
-dependencies {
-    implementation(project(":resources"))
-    implementation(project(":resource-adapters"))
-    implementation(project(":core"))
+public class NetworkFantasyContentAdapter {
 
-    implementation(Square.okHttp3.okHttp)
-    implementation(Square.okHttp3.loggingInterceptor)
+    @FromJson
+    public fun fromJson(jsonReader: JsonReader, delegate: JsonAdapter<NetworkLeague>): NetworkFantasyContent? {
+        return TODO()
+    }
 
-    implementation("com.github.scribejava:scribejava-apis:_")
-
-    implementation(Square.retrofit2.retrofit)
-    implementation(Square.retrofit2.converter.moshi)
-    implementation(Square.moshi)
-    implementation("com.squareup.moshi:moshi-adapters:_")
-
-    testImplementation(Testing.junit4)
-    testImplementation("com.google.truth:truth:_")
-
-    // TODO validate models?
-    testImplementation("org.jetbrains.kotlin:kotlin-reflect:_")
-    testImplementation("io.github.classgraph:classgraph:_")
-    testImplementation("uk.co.jemos.podam:podam:_")
+    @ToJson
+    public fun toJson(jsonWriter: JsonWriter, data: LeagueListItem, delegate: JsonAdapter<NetworkLeague>) {
+        when (data) {
+            is NetworkLeague -> delegate.toJson(jsonWriter, data)
+            // else -> jsonWriter.value()
+            else -> TODO()
+        }
+    }
 }

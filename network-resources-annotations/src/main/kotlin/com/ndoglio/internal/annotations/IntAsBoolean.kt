@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Nicholas Doglio
+ * Copyright (c) 2020. Nicholas Doglio
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,33 +22,19 @@
  * SOFTWARE.
  */
 
-plugins {
-    kotlin("jvm")
-}
+package com.ndoglio.internal.annotations
 
-group = "com.ndoglio.yahoo-fantasy-client"
-version = "0.1.0-SNAPSHOT"
+import com.ndoglio.yahoofantasy.core.InternalApi
+import com.squareup.moshi.JsonQualifier
 
-dependencies {
-    implementation(project(":resources"))
-    implementation(project(":resource-adapters"))
-    implementation(project(":core"))
-
-    implementation(Square.okHttp3.okHttp)
-    implementation(Square.okHttp3.loggingInterceptor)
-
-    implementation("com.github.scribejava:scribejava-apis:_")
-
-    implementation(Square.retrofit2.retrofit)
-    implementation(Square.retrofit2.converter.moshi)
-    implementation(Square.moshi)
-    implementation("com.squareup.moshi:moshi-adapters:_")
-
-    testImplementation(Testing.junit4)
-    testImplementation("com.google.truth:truth:_")
-
-    // TODO validate models?
-    testImplementation("org.jetbrains.kotlin:kotlin-reflect:_")
-    testImplementation("io.github.classgraph:classgraph:_")
-    testImplementation("uk.co.jemos.podam:podam:_")
-}
+/**
+ * [JsonQualifier] annotation for fields that the API returns as an [kotlin.Int] but should be represented
+ * as a [kotlin.Boolean].
+ *
+ * When applying this to a class that's using Moshi annotations make sure to pass in the corresponding
+ * adapter to the Moshi instance.
+ */
+@Retention(AnnotationRetention.RUNTIME)
+@JsonQualifier
+@InternalApi
+public annotation class IntAsBoolean

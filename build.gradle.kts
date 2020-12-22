@@ -1,3 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 /*
  * MIT License
  *
@@ -27,7 +31,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.4.10"))
+        classpath(kotlin("gradle-plugin", version = "1.4.21"))
     }
 }
 
@@ -40,6 +44,48 @@ plugins {
 allprojects {
     repositories {
         jcenter()
-        mavenCentral()
+    }
+}
+
+subprojects {
+    apply {
+        plugin("io.gitlab.arturbosch.detekt")
+        plugin("org.jlleitschuh.gradle.ktlint")
+        plugin("org.jetbrains.dokka")
+        plugin("org.gradle.jacoco")
+    }
+
+    ktlint {
+        version.set("0.40.0")
+        outputColorName.set("RED")
+        disabledRules.set(setOf("import-ordering"))
+    }
+
+    tasks.withType<JavaCompile>().configureEach {
+        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+        targetCompatibility = JavaVersion.VERSION_1_8.toString()
+    }
+
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        kotlinOptions { jvmTarget = JavaVersion.VERSION_1_8.toString() }
+    }
+
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions.freeCompilerArgs += listOf(
+            "-Xopt-in=kotlin.RequiresOptIn",
+            "-Xopt-in=com.ndoglio.yahoofantasy.core.InternalApi"
+        )
+    }
+
+    pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
+        configure<KotlinProjectExtension> {
+            // TODO need Moshi to support explicit mode
+            // https://github.com/square/moshi/issues/1203
+            explicitApiWarning()
+        }
+
+        configure<JacocoPluginExtension> {
+            toolVersion = "0.8.6"
+        }
     }
 }
