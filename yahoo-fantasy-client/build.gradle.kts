@@ -25,7 +25,6 @@
 plugins {
     kotlin("jvm")
     id("io.gitlab.arturbosch.detekt")
-    id("org.jlleitschuh.gradle.ktlint")
     id("org.jetbrains.dokka")
     jacoco
 }
@@ -48,11 +47,6 @@ jacoco {
     toolVersion = "0.8.6"
 }
 
-ktlint {
-    version.set("0.39.0")
-    outputColorName.set("RED")
-    disabledRules.set(setOf("import-ordering"))
-}
 
 group = "com.ndoglio.yahoo-fantasy-client"
 version = "0.1.0"
